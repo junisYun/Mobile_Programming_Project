@@ -1,0 +1,75 @@
+<? @session_start() ?>
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>문의</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body>
+		<div id="page-wrapper">
+				<div id="header">
+						<h1><a href="index.html" id="logo">한국기술교육대학교 <em>책장터</em></a></h1>
+					<nav id="nav">
+						<ul>
+							<li><a href="index.html">홈으로</a></li>
+							<li><a href="notice.html">공지사항</a>
+							<li><a href="book.html">거래 게시판</a></li>
+							<li><a href="free.html">자유 게시판</a></li>
+						</ul>
+					</nav>
+
+				</div>
+				<section class="wrapper style1">
+					<div class="container">
+						<div id="content">
+								<article>
+									<header>
+										<h2>문의하기</h2>
+										<div>
+											<h5>사이트에 대한 문의나 건의 메세지를 보냅니다.</h5>
+										</div>
+												<div id="boardWrite">
+													<form action="qna.html" method="post">
+														<div>
+															<?php
+															if(isset($_REQUEST['email'])) {
+																$email=$_REQUEST['subject'];
+																$subject = $_REQUEST['message'];
+																mail("yys7658@kut.ac.kr", "Subject:$subject", $message, "From: $email");
+																echo "Thank you for using our mail form";
+															}
+															else {
+																echo "<form method'post' action = 'qna.html'>
+																	보내는 이메일:<input name='email' type='text' /><br />
+																	내용: <br />
+																	<textarea name='message' rows='15' cols'40'>
+																	</textarea><br />
+																	<input type='submit' />
+																	<form>";
+															}
+															?>
+														</div>
+												
+																
+                                                    </form>
+                                        </div>
+                                    </header>
+                                 
+                                    
+												
+										
+								</article>
+						</div>
+					</div>
+				</section>
+
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.dropotron.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+        </div>
+	</body>
+</html>
